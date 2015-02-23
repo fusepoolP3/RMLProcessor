@@ -16,19 +16,24 @@ The processor can be installed using Maven, so make sure you have installed it f
 
 Usage
 -----
-You can run a mapping process by executing the following command.
+You see the commandline options execute the following command.
     
-    java -jar target/RMLMapper-0.1.jar <mapping_file> <output_file> [-g <graph>]
+    java -jar RMLMapper-0.1.jar -H
 
-With 
-    
-    <mapping_file> = The RML mapping file conform with the [RML specification](http://semweb.mmlab.be/ns/rml)
-    <output_file> = The file where the output RDF triples are stored; default in [N-Triples](http://www.w3.org/TR/n-triples/) syntax.
-    <graph> (optional) = The named graph in which the output RDF triples are stored.
-        
-For instance, to run example1, execute the following command by replacing the paths to the files with the local paths:
+To execute a mapping on the commandline run it like this:
 
-    java -jar target/RMLMapper-0.1.jar /path/to/the/mapping/document/example.rml.ttl /path/to/the/output/file/example1_test.output.nt
+    java -jar RMLMapper-0.1.jar -M mapping.ttl -O output.nt
+
+If you want to start a service execute:
+
+    java -jar RMLMapper-0.1.jar -S -P 8150 -C
+
+Where `-P` and `-C` are optional. Default port is 8150. The transfomer service
+has to be invoked with a query paramter "mapping" with the URI of the mappinng 
+as value. You can for example use cURL to run transformation. 
+
+    curl -X POST --d @<data-file> "http://localhost:8150/?mapping=<uri-of-rml-mapping>"
+
 
 Remark
 -----
