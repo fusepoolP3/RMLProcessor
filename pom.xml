@@ -151,6 +151,11 @@
             <version>9.5.1-4</version>
             <classifier>compressed</classifier>
         </dependency>
+        <dependency>
+            <groupId>eu.fusepool.p3</groupId>
+            <artifactId>transformer-implementation-library</artifactId>
+            <version>1.2.1</version>
+        </dependency>
     </dependencies>
 
 </project>
