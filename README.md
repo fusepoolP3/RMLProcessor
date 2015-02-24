@@ -29,10 +29,11 @@ If you want to start a service execute:
     java -jar RMLMapper-0.1.jar -S -P 8150 -C
 
 Where `-P` and `-C` are optional. Default port is 8150. The transfomer service
-has to be invoked with a query paramter "mapping" with the URI of the mappinng 
-as value. You can for example use cURL to run transformation. 
+is used by issuing an HTTP POST request posting the mapping file as body. 
 
-    curl -X POST --d @<data-file> "http://localhost:8150/?mapping=<uri-of-rml-mapping>"
+You can for example use cURL to run transformation. 
+
+    curl -X POST --d @<rml-napping-file> "http://localhost:8150/?mapping=<uri-of-rml-mapping>"
 
 
 Remark
